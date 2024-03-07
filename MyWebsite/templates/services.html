@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="services">
+      <div class="content">
+        <p>Services</p>
+        <h2>Grow your business with us</h2>
+        Hello {{output}}
+        <div class="cards">
+          <form method="get">
+              <input type="text" name="servicename" value="" />
+              <input type="submit" value="Search"/>
+          </form>
+          <div class="card card-android">
+            <div class="card-body">
+              <i class={{n.service_icon}}></i>
+              <h2>{{n.service_title}}</h2>
+              <p>
+                {{n.service_des | upper | safe}}
+              </p>
+            </div>
+          </div>
+          <div class="card card-website">
+            <div class="card-body">
+              <i class="bi bi-code-square"></i>
+              <h2>Website</h2>
+              <p>
+                Need a website for your bussiness or personal use ? why are you
+                waiting drop a project request now!
+              </p>
+            </div>
+          </div>
+          <div class="card card-others">
+            <div class="card-body">
+              <i class="bi bi-chat-right"></i>
+              <h2>Other</h2>
+              <p>
+                We provide you any type of technical services as you need, for
+                more details please contact us
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav aria-label="...">
+  <ul class="pagination">
+    {% if servicesData.has_previous %}
+    <li class="page-item ">
+      <a class="page-link" href="/services/?page=1" tabindex="-1">First</a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="/services/?page={{servicesData.previous_page_number}}" tabindex="-1">Previous</a>
+    </li>
+    {% endif %}
+    {% for n in totalPagelist %}
+    <li class="page-item"><a class="page-link" href="/services/?page={{n}}">{{n}}</a></li>
+    {% endfor %}
+
+    {% if servicesData.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="/services/?page={{servicesData.next_page_number}}">Next</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/services/?page={{lastpage}}">Last</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="contact">
+      <div class="content">
+        <h2>MarkSheet</h2>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <form method="post">
+                  {% csrf_token %}
+                  <label for="">Subject1</label>
+                  <input type="text" name="Subject1" class="form-control"/>
+
+
+                  <label for="">Subject2</label>
+                  <input type="text" name="Subject2" class="form-control"/>
+
+                  <label for="">Subject3</label>
+                  <input type="text" name="Subject3" class="form-control"/>
+
+                  <label for="">Subject4</label>
+                  <input type="text" name="Subject4" class="form-control"/>
+
+                  <label for="">Subject5</label>
+                  <input type="text" name="Subject5" class="form-control"/>
+
+                  <button type="submit">Marksheet</button>
+                  <label>Total</label>
+                  <input type="text" value="{{total}}">
+
+                  <label>Percentage</label>
+                  <input type="text" value="{{percentage}}">
+
+                  <label>Division</label>
+                  <input type="text" value="{{division}}">
+
+              </form>
+          </div>
+
+      </div>
+    </section>
+{% endblock %}

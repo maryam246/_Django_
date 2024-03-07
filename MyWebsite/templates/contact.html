@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="contact">
+      <div class="content">
+        <p>Contact</p>
+        <h2>Contact Us</h2>
+          {{n}}
+      </div>
+      <form method="post" action="{% url 'saveEnquiry'%}" id="contact" role="form" novalidate="novalidate" class="bv-form" accept-charset="utf-8">
+          {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" id="name" value="" />
+        <input type="email" name="email" placeholder="Email" id="email" value="" />
+        <input type="text" name="phone" placeholder="Phone" id="phone" value="" />
+        <input type="text" name="websitename" placeholder="Website Name" id="websitename" value="" />
+        <textarea name="message" placeholder="Message" id="message" rows="8" cols="40"></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <!--<form action="" method="get" accept-charset="utf-8">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" value="" />
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" value="" />
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" value="" />
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="8" cols="40"></textarea>
+        <button type="submit">Send</button>
+      </form>-->
+    </section>
+{% endblock %}

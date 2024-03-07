@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<section id="contact">
+    <h2>{{newsDetails.news_title}}</h2>
+    <div class="content">
+        <div class="col-6">
+            {% if newsDetails.news_image != NULL %}
+            <img src="/media/{{newsDetails.news_image}}" class="img-fluid"/>
+            {% endif %}
+        </div>
+        <div class="col-6">
+            <div class="bg-white p-5">
+                {{newsDetails.news_desc | safe }}
+            </div>
+        </div>
+    </div>
+
+    </section>
+{% endblock %}
